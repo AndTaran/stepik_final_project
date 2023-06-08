@@ -1,5 +1,7 @@
 import math
 
+import pytest
+
 from .locators import ProductPageLocators
 from .base_page import BasePage
 
@@ -24,3 +26,10 @@ class ProductPage(BasePage):
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def price_and_name_comparison(self):
+        assert self.browser.find_element(*ProductPageLocators.NAME_BOOK).text == \
+               self.browser.find_element(*ProductPageLocators.NAME_BOOK_IN_THE_BASKET).text, "Incorrect name book"
+
+        assert self.browser.find_element(*ProductPageLocators.PRICE_BOOK).text == \
+               self.browser.find_element(*ProductPageLocators.PRICE_BOOK_IN_THE_BASKET).text, "Incorrect price book"
