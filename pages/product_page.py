@@ -33,3 +33,9 @@ class ProductPage(BasePage):
 
         assert self.browser.find_element(*ProductPageLocators.PRICE_BOOK).text == \
                self.browser.find_element(*ProductPageLocators.PRICE_BOOK_IN_THE_BASKET).text, "Incorrect price book"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Error, success message is displayed"
+
+    def should_not_be_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is disappeared, but should not be"
