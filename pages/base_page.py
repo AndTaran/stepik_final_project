@@ -1,10 +1,6 @@
-# base_page.py - тут мы храним методы, которые применяются по всему проекту вообще, всё завернуто в класс, чтобы было
-# удобно импортировать.
 from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.common import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
-
 from pages.locators import BasePageLocators
 
 
